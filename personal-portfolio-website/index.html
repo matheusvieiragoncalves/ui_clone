@@ -20,6 +20,8 @@
           <li><a href="#">Contact us</a></li>
           <li><a href="#">Team</a></li>
         </ul>
+
+        <div class="toggle" onclick="handlerToggle(this)"></div>
       </nav>
 
       <div class="text-container">
@@ -50,9 +52,10 @@
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry
         </p>
-
-        <button>Hire Me</button>
-        <button>Download CV</button>
+        <div>
+          <button>Hire Me</button>
+          <button>Download CV</button>
+        </div>
       </div>
     </div>
 
@@ -126,5 +129,17 @@
       <a href="#"><i class="fab fa-instagram"></i></a>
       <a href="#"><i class="fab fa-youtube"></i></a>
     </div>
+
+    <script>
+      function handlerToggle(element) {
+        element.classList.toggle('active');
+
+        if (element.classList.contains('active')) {
+          document.querySelector('nav ul').style.display = 'flex';
+        } else {
+          document.querySelector('nav ul').style.display = 'none';
+        }
+      }
+    </script>
   </body>
 </html>
