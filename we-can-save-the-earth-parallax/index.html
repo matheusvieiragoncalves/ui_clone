@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Save The World | Landing Page Design</title>
+    <script
+      src="https://kit.fontawesome.com/de911bd1e8.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <section>
+      <header>
+        <a href="#" class="logo">World</a>
+        <div class="toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </header>
+      <img src="./images/bg.jpg" class="bg" />
+      <img src="./images/bird.png" class="bird" />
+      <div class="content">
+        <h2>We can save the <br /><span>Earth</span></h2>
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book.
+        </p>
+        <a href="#">Join Us</a>
+      </div>
+      <ul class="sci">
+        <li>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </li>
+      </ul>
+      <div class="textBlocks">
+        <div class="block">
+          <h3>Defenders Of Earth</h3>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book.
+          </p>
+        </div>
+        <div class="block">
+          <h3>How to save Wather</h3>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book.
+          </p>
+        </div>
+      </div>
+    </section>
+    <script>
+      document.addEventListener('mousemove', (e) => {
+        const bg = document.querySelector('.bg');
+        const bird = document.querySelector('.bird');
+        const content = document.querySelector('.content');
+
+        bg.style.width = 100 + e.pageX / 100 + '%';
+
+        bg.style.height = 100 + e.pageX / 100 + '%';
+
+        bird.style.right = 100 + e.pageX / 10 + 'px';
+      });
+    </script>
+  </body>
+</html>
