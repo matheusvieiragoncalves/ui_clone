@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
     left: 24,
 
     width: 70,
-    height: 170,
+    height: 70,
     overflow: 'hidden',
 
     backgroundColor: theme.colors.red,
@@ -31,5 +31,5 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.primary700,
     color: theme.colors.white,
     fontSize: 15
-  },
+  }
 });
