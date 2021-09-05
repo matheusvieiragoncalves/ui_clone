@@ -31,9 +31,9 @@ const Map: React.FC = () => {
         );
       },
       {
-        timeout: 2000,
-        enableHighAccuracy: true,
-        maximumAge: 1000,
+        timeout: 5000, // Tempo maximo para busca
+        enableHighAccuracy: true, // Alta precisão GPS
+        maximumAge: 1000, // Realiza intervalos de 1 segunda para busca a nova localização
       }
     );
   }, []);
