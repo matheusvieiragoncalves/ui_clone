@@ -1,5 +1,5 @@
 import React from 'react';
-import Map from './src/screens/Map';
+import Map from './src/components/Map';
 
 // import { Container } from './styles';
 
