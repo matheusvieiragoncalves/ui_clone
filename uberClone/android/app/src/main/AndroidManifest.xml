@@ -5,7 +5,7 @@
 
   <application android:name=".MainApplication" android:label="@string/app_name" android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher_round" android:allowBackup="false" android:theme="@style/AppTheme">
 
-    <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyBKVH9FyK0Z0iJVMnGeoMNJSIG9tAhJz3U" />
+    <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyAbFUaWmzEHZwffrql9rEwehV38qeUP4Yw" />
 
     <activity android:name=".MainActivity" android:label="@string/app_name" android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode" android:launchMode="singleTask" android:windowSoftInputMode="adjustResize">
       <intent-filter>

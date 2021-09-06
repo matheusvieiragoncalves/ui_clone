@@ -2,6 +2,7 @@ import Geolocation from '@react-native-community/geolocation';
 import React, { useEffect, useState } from 'react';
 import { Alert, View } from 'react-native';
 import MapView from 'react-native-maps';
+import Search from '../Search';
 import mapDarkModeStyles from './mapDarkModeStyles';
 import styles from './styles';
 
@@ -43,13 +44,16 @@ const Map: React.FC = () => {
       {loading ? (
         <View />
       ) : (
-        <MapView
-          style={styles.map}
-          region={region}
-          showsUserLocation
-          loadingEnabled
-          customMapStyle={mapDarkModeStyles}
-        />
+        <>
+          <MapView
+            style={styles.map}
+            region={region}
+            showsUserLocation
+            loadingEnabled
+            customMapStyle={mapDarkModeStyles}
+          />
+          <Search />
+        </>
       )}
     </View>
   );
