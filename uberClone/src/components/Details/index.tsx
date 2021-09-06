@@ -1,19 +1,64 @@
-import React from 'react';
-import { Image, Text, TouchableOpacity, View } from 'react-native';
-import uberX from '../../assets/uberx.png';
+import React, { useEffect, useState } from 'react';
+import { Text, TouchableOpacity, View } from 'react-native';
+import {
+  ClockIcon,
+  LocationIcon,
+  MyLocationIcon,
+  RoadIcon,
+  StartRouteIcon,
+} from '../../global/styles/icons';
 import styles from './styles';
 
-const Details: React.FC = () => {
+interface IProps {
+  duration: number;
+  distance: number;
+  destination: string;
+  origin: string;
+}
+
+const Details: React.FC<IProps> = ({
+  duration,
+  distance,
+  destination,
+  origin,
+}) => {
+  const [minutes, setMinutes] = useState(0);
+  const [hours, setHours] = useState(0);
+
+  useEffect(() => {
+    setMinutes(duration % 60);
+    setHours(Math.floor(duration / 60));
+  }, [duration]);
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Popular</Text>
-      <Text style={styles.description}>Viagens baratas para o dia a dia</Text>
-      <Image source={uberX} style={styles.image} />
-      <Text style={styles.description}>UberX</Text>
-      <Text style={styles.description}>R$6,00</Text>
+      <Text style={styles.title}>Detalhes da Viagem:</Text>
 
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Solicitar UberX</Text>
+      <View style={styles.infoBox}>
+        <MyLocationIcon />
+        <Text style={styles.infoBoxText}>{origin}</Text>
+      </View>
+
+      <View style={styles.infoBox}>
+        <LocationIcon />
+        <Text style={styles.infoBoxText}>{destination}</Text>
+      </View>
+
+      <View style={styles.infoBox}>
+        <ClockIcon />
+        <Text style={styles.infoBoxText}>
+          {hours > 0 && `${hours} Horas e`} {minutes} Minutos
+        </Text>
+      </View>
+
+      <View style={[styles.infoBox, { borderBottomWidth: 0 }]}>
+        <RoadIcon />
+        <Text style={styles.infoBoxText}>{distance} Km</Text>
+      </View>
+
+      <TouchableOpacity style={styles.button} activeOpacity={0.5}>
+        <StartRouteIcon color="#fff" />
+        <Text style={styles.buttonText}>Inicial Viagem</Text>
       </TouchableOpacity>
     </View>
   );

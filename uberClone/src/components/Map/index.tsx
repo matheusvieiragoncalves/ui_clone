@@ -1,10 +1,10 @@
 import Geolocation from '@react-native-community/geolocation';
 import React, { useEffect, useRef, useState } from 'react';
-import { Alert, Image, Text, TouchableOpacity, View } from 'react-native';
+import { Alert, Text, TouchableOpacity, View } from 'react-native';
 import Geocoder from 'react-native-geocoding';
 import MapView, { Marker } from 'react-native-maps';
-import backImage from '../../assets/back.png';
 import markerImage from '../../assets/marker.png';
+import { BackArrowIcon } from '../../global/styles/icons';
 import Details from '../Details';
 import Directions from '../Directions';
 import Search from '../Search';
@@ -148,9 +148,14 @@ const Map: React.FC = () => {
           {destination.latitude !== 0 ? (
             <>
               <TouchableOpacity onPress={handleBack} style={styles.buttonBack}>
-                <Image source={backImage} />
+                <BackArrowIcon color="#ddd" />
               </TouchableOpacity>
-              <Details />
+              <Details
+                distance={distance}
+                duration={duration}
+                destination={destination.title}
+                origin={currentAddress}
+              />
             </>
           ) : (
             <Search onLocationSelected={handleLocationSelected} />
