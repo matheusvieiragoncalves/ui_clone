@@ -2,13 +2,15 @@ import React from 'react';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import styles from './styles';
 
-const Search: React.FC = () => {
+interface IProps {
+  onLocationSelected: (data: any, details: any) => void;
+}
+
+const Search: React.FC<IProps> = ({ onLocationSelected }) => {
   return (
     <GooglePlacesAutocomplete
       placeholder="Para onde?"
-      onPress={(data, details) => {
-        console.log(data, details);
-      }}
+      onPress={onLocationSelected}
       onFail={(err) => {
         console.log('erro: ', err);
       }}
