@@ -3,14 +3,14 @@ import { Platform } from 'react-native';
 const styles = {
   container: {
     position: 'absolute',
-    top: Platform.select({ ios: 60, android: 40 }),
+    top: Platform.select({ ios: 60, android: 60 }),
     width: '100%',
   },
   textInputContainer: {
     flex: 1,
     backgroundColor: 'transparent',
     height: 54,
-    marginHorizontal: 20,
+    marginHorizontal: 10,
     borderTopWidth: 0,
     borderBottomWidth: 0,
   },
@@ -34,7 +34,7 @@ const styles = {
     borderWidth: 1,
     borderColor: '#ddd',
     backgroundColor: '#fff',
-    marginHorizontal: 20,
+    marginHorizontal: 10,
     elevation: 5,
     shadowColor: '#000',
     shadowOpacity: 0.1,
