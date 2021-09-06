@@ -51,6 +51,14 @@ const styles = StyleSheet.create({
     fontSize: 10,
     textAlign: 'center',
   },
+  buttonBack: {
+    position: 'absolute',
+    top: Platform.select({
+      ios: 60,
+      android: 40,
+    }),
+    left: 20,
+  },
 });
 
 export default styles;

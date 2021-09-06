@@ -1,15 +1,23 @@
 import Geolocation from '@react-native-community/geolocation';
 import React, { useEffect, useRef, useState } from 'react';
-import { Alert, Text, View } from 'react-native';
+import { Alert, Image, Text, TouchableOpacity, View } from 'react-native';
 import Geocoder from 'react-native-geocoding';
 import MapView, { Marker } from 'react-native-maps';
+import backImage from '../../assets/back.png';
 import markerImage from '../../assets/marker.png';
+import Details from '../Details';
 import Directions from '../Directions';
 import Search from '../Search';
 import mapDarkModeStyles from './mapDarkModeStyles';
 import styles from './styles';
 
 Geocoder.init('AIzaSyAbFUaWmzEHZwffrql9rEwehV38qeUP4Yw');
+
+const INITIAL_DESTINATION = {
+  latitude: 0,
+  longitude: 0,
+  title: '',
+};
 
 const Map: React.FC = () => {
   const [region, setRegion] = useState({
@@ -20,11 +28,7 @@ const Map: React.FC = () => {
   });
 
   const [loading, setLoading] = useState(true);
-  const [destination, setDestination] = useState({
-    latitude: 0,
-    longitude: 0,
-    title: '',
-  });
+  const [destination, setDestination] = useState(INITIAL_DESTINATION);
 
   const [duration, setDuration] = useState(0);
   const [distance, setDistance] = useState(0);
@@ -73,6 +77,10 @@ const Map: React.FC = () => {
     });
   };
 
+  const handleBack = () => {
+    setDestination(INITIAL_DESTINATION);
+  };
+
   return (
     <View style={styles.container}>
       {loading ? (
@@ -102,7 +110,7 @@ const Map: React.FC = () => {
                           right: 50,
                           left: 50,
                           top: 50,
-                          bottom: 50,
+                          bottom: 350,
                         },
                       });
                     }, 500);
@@ -137,7 +145,16 @@ const Map: React.FC = () => {
               </>
             )}
           </MapView>
-          <Search onLocationSelected={handleLocationSelected} />
+          {destination.latitude !== 0 ? (
+            <>
+              <TouchableOpacity onPress={handleBack} style={styles.buttonBack}>
+                <Image source={backImage} />
+              </TouchableOpacity>
+              <Details />
+            </>
+          ) : (
+            <Search onLocationSelected={handleLocationSelected} />
+          )}
         </>
       )}
     </View>
