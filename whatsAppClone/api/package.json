@@ -1,0 +1,35 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "prisma:run-migrations": "npx prisma migrate dev",
+    "prisma:studio": "npx prisma studio",
+    "prisma:generate-der": "npx prisma generate",
+    "prisma-run-migrations": "prisma migrate dev --preview-feature",
+    "prisma-run-migrations-test": "prisma migrate dev --preview-feature",
+    "prisma-generate-schema": "npx prisma introspect",
+    "prisma-studio": "npx prisma studio --port 5556",
+    "prisma-update-intellisense": "npx prisma generate",
+    "prisma-reset-database": "npx prisma migrate reset",
+    "prisma-seed": " prisma db seed --preview-feature",
+    "prisma-deploy": "npx prisma migrate deploy"
+  },
+  "devDependencies": {
+    "@mermaid-js/mermaid-cli": "^9.2.2",
+    "@types/cors": "^2.8.12",
+    "prisma": "^4.7.0",
+    "prisma-erd-generator": "^1.2.4",
+    "tsx": "^3.12.1",
+    "typescript": "^4.9.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.7.0",
+    "@types/express": "^4.17.14",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "yup": "^0.32.11"
+  }
+}
