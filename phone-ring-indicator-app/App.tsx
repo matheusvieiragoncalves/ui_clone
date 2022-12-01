@@ -1,20 +1,32 @@
 import { Feather } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 import { MotiView } from 'moti';
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Easing } from 'react-native-reanimated';
 
 const _color = '#6E01EF';
 const _size = 100;
 
 export default function App() {
+  const circles = [...Array(3).keys()];
+
+  const [animationIsHidden, setAnimationIsHidden] = useState(true);
+
+  const handleToggleAnimation = () => {
+    setAnimationIsHidden(!animationIsHidden);
+  };
+
   return (
     <View style={[styles.center, { flex: 1 }]}>
       <StatusBar />
-      <View style={[styles.dot, styles.center]}>
-        {[...Array(3).keys()].map((index) => {
-          return (
+      <TouchableOpacity
+        activeOpacity={0.7}
+        onPress={handleToggleAnimation}
+        style={[styles.dot, styles.center]}
+      >
+        {!animationIsHidden &&
+          circles.map((index) => (
             <MotiView
               key={index}
               style={[StyleSheet.absoluteFillObject, styles.dot]}
@@ -32,10 +44,9 @@ export default function App() {
                 loop: true
               }}
             />
-          );
-        })}
+          ))}
         <Feather name="phone-outgoing" size={32} color="#fff" />
-      </View>
+      </TouchableOpacity>
     </View>
   );
 }
